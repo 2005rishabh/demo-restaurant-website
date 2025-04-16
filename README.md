@@ -36,9 +36,11 @@ demo/
 You can add screenshots of the site here to showcase different pages or features.
 
 ![Homepage](images/homepage.png)
+HOMEPAGE
 ![Menu Page](images/menu.png)
+MENUPAGE
 ![Checkout](images/checkout.png)
-
+CHECKOUT
     📁 To use this:
     Create a folder named images in your repo root, and place your screenshots there using the matching filenames above.
 
