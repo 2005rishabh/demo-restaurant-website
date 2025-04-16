@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deals - Shardafoodie</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="/image/logo.png" alt="ZannahFood Logo" class="logo-img">
+                    <h1>Campus<span>Eats</span></h1>
+                </div>
+                <nav class="nav-primary">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                    </ul>
+                </nav>
+                <div class="search-cart">
+                    <input type="text" placeholder="Search">
+                    <a href="shop.html"><div class="cart-icon">
+                        <img src="/image/cart.jfif" alt="Cart">
+                        <span>3</span>
+                    </div></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="deals-section">
+        <div class="container">
+            <h2>Our Best Deals</h2>
+            <div class="deals-items">
+                <div class="deal-item">
+                    <img src="/image/b1g1.avif" alt="Buy One Get One">
+                    <h3>Buy One Get One Free</h3>
+                    <p>Order any large pizza and get another one absolutely free! </p>
+                    <p class="price">₹499</p>
+                    <button class="add-to-cart" data-price="499">Add to Cart</button>
+                </div>
+                <div class="deal-item">
+                    <img src="/image/combo.webp" alt="Combo Meal">
+                    <h3>Combo Meal</h3>
+                    <p>Get a burger, fries, and a drink at an unbeatable combo price.</p>
+                    <p class="price">₹299</p>
+                    <button class="add-to-cart" data-price="299">Add to Cart</button>
+                </div>
+                <div class="deal-item">
+                    <img src="/image/family.avif" alt="Family Feast">
+                    <h3>Family Feast</h3>
+                    <p>A special deal for your family: 4 main courses and 2 desserts.</p>
+                    <p class="price">₹999</p>
+                    <button class="add-to-cart" data-price="999">Add to Cart</button>
+                </div>
+                <div class="deal-item">
+                    <img src="/image/festive.jpg" alt="Festive Delight">
+                    <h3>Festive Delight</h3>
+                    <p>Celebrate with a special festive deal that includes our best-sellers.</p>
+                    <p class="price">₹799</p>
+                    <button class="add-to-cart" data-price="799">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="about-us">
+                    <h3>About Us</h3>
+                    <p>CampusEats is a food delivery website created by two enthusiastic students from Sharda
+                        University. Our mission is to provide convenient and delicious food options to our fellow
+                        students of hostels.</p>
+                </div>
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                    </ul>
+                </div>
+                <div class="contact-us">
+                    <h3>Contact Us</h3>
+                    <p>Phone: +91 917 082 9692</p>
+                    <p>Phone: +91 767 844 8509</p>
+                    <p>Email: <a href="mailto:info@campuseats.com">info@campuseats.com</a></p>
+                    <p>Sharda University, Knowledge Park-III, Greater Noida, Uttar Pradesh</p>
+                </div>
+                <div class="social-media">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CampusEats. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cartCount = JSON.parse(localStorage.getItem('cartItems'))?.length || 0;
+
+        function updateCartCount() {
+            document.querySelector('.cart-icon span').textContent = cartCount;
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function () {
+                const item = {
+                    name: this.previousElementSibling.previousElementSibling.textContent,
+                    price: parseFloat(this.getAttribute('data-price')),  // Get price from data attribute
+                    quantity: 1
+                };
+
+                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                cartItems.push(item);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                cartCount = cartItems.length;
+                updateCartCount();
+                alert(item.name + ' added to cart!');
+            });
+        });
+
+        updateCartCount();
+    </script>
+
+</body>
+
+</html>

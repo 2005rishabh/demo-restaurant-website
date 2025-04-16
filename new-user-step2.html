@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User - Step 2 - Shardafoodie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="signup-container">
+        <h2>New User - Step 2</h2>
+        <form id="new-user-form-step2">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="re-password">Re-enter Password:</label>
+            <input type="password" id="re-password" name="re-password" required>
+            <button type="button" onclick="submitSignup()">Sign Up</button>
+            <button type="button" onclick="location.href='index.html'">Go to Home</button>
+        </form>
+    </div>
+
+    <script>
+        function submitSignup() {
+            const password = document.getElementById('password').value;
+            const rePassword = document.getElementById('re-password').value;
+
+            if (password !== rePassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            const user = JSON.parse(localStorage.getItem('newUser'));
+            user.password = password;
+            alert('Signup successful!');
+            localStorage.removeItem('newUser');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>

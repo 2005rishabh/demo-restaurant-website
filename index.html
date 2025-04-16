@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shardafoodie</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="/image/logo.png" alt="ZannahFood Logo" class="logo-img">
+                    <h1>Campus<span>Eats</span></h1>
+                </div>
+                <nav class="nav-primary">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                    </ul>
+                </nav>
+                <div class="search-cart">
+                    <input type="text" placeholder="Search">
+                    <div class="cart-icon">
+                        <a href="shop.html"><img src="/image/cart.jfif" alt="Cart"><span id="cart-count">0</span></a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-text">
+            <h2>Order Your Favourite <span>Foods</span> & Quick Delivery</h2>
+            <p>Get your favorite foods, freshly prepared and delivered with a smile. Our menu boasts an array of
+                mouth-watering options, carefully crafted to delight your senses. Order now and enjoy a seamless pickup
+                experience!</p>
+            <div class="buttons">
+                <a href="shop.html">
+                    <button class="order-now">Order Now</button>
+                </a>
+                <a href="order.html">
+                    <button class="how-to-order" href="order.html">How To Order</button>
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="/image/chickenbiryani (1).jpg" alt="Food Image">
+            <div class="food-card">
+                <p><strong>Chicken Biryani</strong></p>
+                <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+                <p>Chef Ahmed</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="about-us">
+                    <h3>About Us</h3>
+                    <p>CampusEats is a food delivery website created by two enthusiastic students from Sharda University. Our mission is to provide convenient and delicious food options to our fellow students of hostels.</p>
+                </div>
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="contact-us">
+                    <h3>Contact Us</h3>
+                    <p>Phone: +91 917 082 9692</p>
+                    <p>Phone: +91 767 844 8509</p>
+                    <p>Email: <a href="mailto:info@campuseats.com">info@campuseats.com</a></p>
+                    <p>Sharda University, Knowledge Park-III, Greater Noida, Uttar Pradesh</p>
+                </div>
+                <div class="social-media">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CampusEats. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function updateCartCount() {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            document.getElementById('cart-count').textContent = cartItems.length;
+        }
+
+        updateCartCount();
+
+        document.querySelector('.search-cart input').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                let searchQuery = event.target.value;
+                if (searchQuery) {
+                    alert('Searching for: ' + searchQuery);
+                } else {
+                    alert('Please enter something to search.');
+                }
+            }
+        });
+
+        document.querySelector('.cart-icon').addEventListener('click', function () {
+            alert('Opening your cart. You have ' + document.getElementById('cart-count').textContent + ' items.');
+        });
+    </script>
+</body>
+
+</html>
