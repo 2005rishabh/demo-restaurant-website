@@ -41,7 +41,9 @@ HOMEPAGE
 MENUPAGE
 ![Checkout](images/checkout.png)
 CHECKOUT
-    📁 To use this:
+    
+    
+📁 To use this:
     Create a folder named images in your repo root, and place your screenshots there using the matching filenames above.
 
 🚀 Getting Started
